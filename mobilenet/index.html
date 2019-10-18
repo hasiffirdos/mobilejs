@@ -1,0 +1,73 @@
+
+<!doctype html>
+
+<head>
+  <title>TensorFlow.js: Using Yolov3-Tiny</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../shared/tfjs-examples.css" />
+</head>
+
+<style>
+  .pred-container {
+    margin-bottom: 20px;
+  }
+
+  .pred-container > div {
+    display: inline-block;
+    margin-right: 20px;
+    vertical-align: top;
+  }
+
+  .row {
+    display: table-row;
+  }
+  .cell {
+    display: table-cell;
+    padding-right: 20px;
+  }
+
+  #file-container {
+    margin-bottom: 20px;
+  }
+</style>
+
+<body>
+  <div class="tfjs-example-container">
+    <section class='title-area'>
+      <h1>TensorFlow.js: Using Yolov3-Tiny</h1>
+    </section>
+
+    <section>
+      <p class='section-head'>Description</p>
+      <p>
+        This demo uses the Yolov3-Tiny model that is trained to detect caps and snacks Bellmark. 
+        It is not trained to recognize human faces. For best performance, upload images of object
+        like bottle cap from inside view and snacks bellmark facing. You can toggle between these three models for bottle caps, snacks Bellmark and combined model,which detects both classes, through <a href="#toggleBtn">this button</a>.
+      </p>
+    </section>
+
+    <section>
+      <p class='section-head'>Status</p>
+      <div id="status"></div>
+    </section>
+    <section>
+      <p class='section-head'>Current Model</p>
+      <div><button id="toggleBtn">text</button> <span id="current_model" style="padding-left: 5px"> Selected: Bottle Cap</span></div>
+    </section>
+    <section>
+      <p class='section-head'>Model Output</p>
+      
+      <div id="file-container" style="display: none ;padding-top: 10px" >
+        Upload an image: <input type="file" id="files" name="files[]" multiple />
+      </div>
+
+      <div id="predictions"></div>
+
+      <img style="display: none" id="cap" src="image2.jpg" width=224 height=224 />
+      <canvas id="my_canvas"></canvas>
+    </section>
+
+    <script src="index.js"></script>
+  </div>
+</body>
